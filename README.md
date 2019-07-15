@@ -43,3 +43,9 @@ trust.store.password=password
 
 
 ```
+
+
+## Resources
+
+https://www.baeldung.com/spring-boot-https-self-signed-certificate
+
