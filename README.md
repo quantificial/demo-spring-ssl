@@ -10,9 +10,15 @@ please refer to  https://github.com/quantificial/brain/wiki/OpenSSL
 
 openssl req -x509 -nodes -sha256 -days 365 -newkey rsa:2048 -keyout private.key -out private.crt
 
+private key: private.key
+
+public key: private.crt
+
 ### convert the certificate to PKCS12 format 
 
 openssl pkcs12 -export -in private.crt -inkey private.key -name testlocal -out output.p12
+
+need to input export password
 
 ### set the spring boot properties
 
@@ -48,4 +54,7 @@ trust.store.password=password
 ## Resources
 
 https://www.baeldung.com/spring-boot-https-self-signed-certificate
+
+https://unix.stackexchange.com/questions/347116/how-to-create-keystore-and-truststore-using-self-signed-certificate
+
 
