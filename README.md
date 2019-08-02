@@ -57,4 +57,5 @@ https://www.baeldung.com/spring-boot-https-self-signed-certificate
 
 https://unix.stackexchange.com/questions/347116/how-to-create-keystore-and-truststore-using-self-signed-certificate
 
+https://medium.com/@niral22/2-way-ssl-with-spring-boot-microservices-2c97c974e83
 
