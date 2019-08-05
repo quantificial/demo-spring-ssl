@@ -2,6 +2,10 @@
 
 It is needed to generate a private key and public key. They could be self signed or purchase from authorized CA
 
+example of how to consume the ssl endpoint
+
+> github: spring-ssl-consumer
+
 ### generate ssl
 
 please refer to  https://github.com/quantificial/brain/wiki/OpenSSL
