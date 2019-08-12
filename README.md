@@ -12,17 +12,21 @@ please refer to  https://github.com/quantificial/brain/wiki/OpenSSL
 
 ### generate the self signed certificate
 
-openssl req -x509 -nodes -sha256 -days 365 -newkey rsa:2048 -keyout private.key -out private.crt
+openssl req -x509 -nodes -sha256 -days 365 -newkey rsa:2048 -keyout secure.key -out secure.crt
 
-private key: private.key
+private key: secure.key
 
-public key: private.crt
+public key: secure.crt
 
 ### convert the certificate to PKCS12 format 
 
-openssl pkcs12 -export -in private.crt -inkey private.key -name testlocal -out output.p12
+openssl pkcs12 -export -in secure.crt -inkey secure.key -name testlocal -out secure.p12
 
-need to input export password
+need to input export password to protect the secure.p12 key
+
+### if it is necessary to convert to jks, please use the command below
+
+keytool -importkeystore -destkeystore secure.jks -srckeystore secure.p12 -srcstoretype pkcs12 -alias testlocal
 
 ### set the spring boot properties
 
@@ -37,7 +41,7 @@ security.require-ssl=true
 server.ssl.key-store-type=PKCS12
 
 # The path to the keystore containing the certificate
-server.ssl.key-store=classpath:keystore/output.p12
+server.ssl.key-store=classpath:keystore/secure.p12
 
 # The password used to generate the certificate
 server.ssl.key-store-password=abcd1234
